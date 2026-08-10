@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($g = Get-Command gh -ErrorAction SilentlyContinue; if \\($g\\) { \"gh: $\\($g.Source\\)\"; gh --version; gh auth status } else { \"gh: NOT FOUND\" })",
+      "PowerShell($v = Get-Command vpk -ErrorAction SilentlyContinue; if \\($v\\) { \"vpk: $\\($v.Source\\)\"; vpk --version } else { \"vpk: NOT FOUND on PATH\" })",
+      "PowerShell(vpk upload github --help)",
+      "PowerShell(vpk --help)",
+      "PowerShell(vpk upload github -H)",
+      "WebFetch(domain:docs.velopack.io)",
+      "PowerShell($c = @\\(\"$env:ProgramFiles\\\\GitHub CLI\\\\gh.exe\",\"${env:ProgramFiles\\(x86\\)}\\\\GitHub CLI\\\\gh.exe\",\"$env:LOCALAPPDATA\\\\Programs\\\\GitHub CLI\\\\gh.exe\",\"$env:LOCALAPPDATA\\\\Microsoft\\\\WinGet\\\\Links\\\\gh.exe\",\"$env:USERPROFILE\\\\scoop\\\\shims\\\\gh.exe\",\"$env:ProgramData\\\\chocolatey\\\\bin\\\\gh.exe\"\\); foreach \\($p in $c\\) { if \\(Test-Path $p\\) { \"FOUND: $p\" } }; \"---done---\")",
+      "PowerShell($g = Get-Command git -ErrorAction SilentlyContinue; if \\($g\\) { \"git: $\\($g.Source\\)\"; git --version } else { \"git: NOT FOUND\" }; \"--- tokens in env ---\"; Get-ChildItem env: | Where-Object { $_.Name -match 'GH_|GITHUB|VPK_TOKEN' } | ForEach-Object { $_.Name }; \"--- gh config ---\"; if \\(Test-Path \"$env:APPDATA\\\\GitHub CLI\\\\hosts.yml\"\\) { \"gh hosts.yml EXISTS\" } else { \"no gh config\" })",
+      "PowerShell(git config --global user.name)",
+      "PowerShell(git config --global user.email)",
+      "PowerShell(git config --global credential.helper)",
+      "PowerShell(\"--- git identity ---\")",
+      "PowerShell(\"--- credential helper ---\")"
+    ]
+  }
+}
