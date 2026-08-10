@@ -1,0 +1,7 @@
+# Local tooling config — not part of the published release repo
+.claude/
+
+# Velopack build output should never be committed; artifacts go to Releases
+Releases/
+*.nupkg
+*Setup.exe
